@@ -1,0 +1,145 @@
+-- 1. Create the database
+CREATE DATABASE AnmiShoe;
+
+-- 2. Select the database to use
+USE AnmiShoe;
+
+-- 3. Create the categories table
+CREATE TABLE categories (
+    category_id INT PRIMARY KEY AUTO_INCREMENT,
+    category_name VARCHAR(100) NOT NULL
+);
+
+-- 4. Create the products table
+CREATE TABLE products (
+    product_id INT PRIMARY KEY AUTO_INCREMENT,
+    product_name VARCHAR(100) NOT NULL,
+    description TEXT,
+    price DECIMAL(10, 2) NOT NULL,
+    stock_quantity INT NOT NULL,
+    category_id INT,
+    FOREIGN KEY (category_id) REFERENCES categories(category_id)
+);
+
+-- 5. Create the customers table
+CREATE TABLE customers (
+    customer_id INT PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    phone_number VARCHAR(15),
+    address TEXT
+);
+
+-- 6. Create the orders table
+CREATE TABLE orders (
+    order_id INT PRIMARY KEY AUTO_INCREMENT,
+    customer_id INT,
+    order_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    total_amount DECIMAL(10, 2),
+    status VARCHAR(50),
+    FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
+);
+
+-- 7. Create the order_items table
+CREATE TABLE order_items (
+    order_item_id INT PRIMARY KEY AUTO_INCREMENT,
+    order_id INT,
+    product_id INT,
+    quantity INT NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (order_id) REFERENCES orders(order_id),
+    FOREIGN KEY (product_id) REFERENCES products(product_id)
+);
+
+-- 8. Create the carts table
+CREATE TABLE carts (
+    cart_id INT PRIMARY KEY AUTO_INCREMENT,
+    customer_id INT,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
+);
+
+-- 9. Create the cart_items table
+CREATE TABLE cart_items (
+    cart_item_id INT PRIMARY KEY AUTO_INCREMENT,
+    cart_id INT,
+    product_id INT,
+    quantity INT NOT NULL,
+    FOREIGN KEY (cart_id) REFERENCES carts(cart_id),
+    FOREIGN KEY (product_id) REFERENCES products(product_id)
+);
+
+-- 10. Insert categories
+INSERT INTO categories (category_name) VALUES 
+('Men'),
+('Women'),
+('Kids'),
+('Sports'),
+('Formal'),
+('Casual'),
+('Sneakers'),
+('Boots');
+
+-- 11. Insert products (shoes)
+INSERT INTO products (product_name, description, price, stock_quantity, category_id) VALUES 
+('Men\'s Leather Boots', 'Durable leather boots for all occasions.', 89.99, 50, 1),
+('Women\'s Running Shoes', 'Lightweight running shoes with excellent grip.', 79.99, 150, 2),
+('Kids\' Sandals', 'Comfortable sandals for kids.', 29.99, 200, 3),
+('Men\'s Formal Oxfords', 'Classic formal shoes with a polished finish.', 99.99, 80, 1),
+('Women\'s Heeled Boots', 'Stylish heeled boots for a chic look.', 119.99, 60, 2),
+('Kids\' Sports Shoes', 'Versatile sports shoes for active kids.', 49.99, 100, 3),
+('Men\'s Casual Sneakers', 'Everyday sneakers with a modern design.', 59.99, 120, 1),
+('Women\'s Casual Flats', 'Comfortable flats perfect for daily wear.', 39.99, 100, 2),
+('Men\'s Sports Sneakers', 'High-performance sneakers for athletes.', 79.99, 90, 1),
+('Women\'s Sandals', 'Elegant sandals with a comfortable fit.', 49.99, 110, 2),
+('Kids\' Boots', 'Warm and sturdy boots for winter.', 69.99, 75, 3),
+('Men\'s Hiking Boots', 'Rugged hiking boots for outdoor adventures.', 129.99, 40, 1),
+('Women\'s Ballet Flats', 'Simple and elegant ballet flats.', 29.99, 90, 2),
+('Men\'s Loafers', 'Casual loafers with a sleek design.', 69.99, 85, 1),
+('Women\'s Sports Shoes', 'Comfortable and breathable sports shoes.', 79.99, 140, 2),
+('Kids\' Dress Shoes', 'Formal shoes perfect for special occasions.', 39.99, 70, 3);
+
+-- 12. Insert customers
+INSERT INTO customers (first_name, last_name, email, password, phone_number, address) VALUES 
+('John', 'Doe', 'johndoe@example.com', 'password123', '123-456-7890', '123 Elm St, Springfield'),
+('Jane', 'Smith', 'janesmith@example.com', 'password456', '234-567-8901', '456 Oak St, Springfield'),
+('Alice', 'Johnson', 'alicejohnson@example.com', 'password789', '345-678-9012', '789 Pine St, Springfield'),
+('Bob', 'Williams', 'bobwilliams@example.com', 'password101', '456-789-0123', '101 Maple St, Springfield'),
+('Eve', 'Brown', 'evebrown@example.com', 'password202', '567-890-1234', '202 Birch St, Springfield');
+
+-- 13. Insert orders
+INSERT INTO orders (customer_id, total_amount, status) VALUES 
+(1, 169.98, 'Completed'),
+(2, 79.99, 'Pending'),
+(3, 49.99, 'Completed'),
+(4, 99.99, 'Shipped'),
+(5, 39.99, 'Delivered');
+
+-- 14. Insert order items
+INSERT INTO order_items (order_id, product_id, quantity, price) VALUES 
+(1, 1, 1, 89.99),
+(1, 7, 1, 79.99),
+(2, 2, 1, 79.99),
+(3, 6, 1, 49.99),
+(4, 4, 1, 99.99),
+(5, 10, 1, 39.99);
+
+-- 15. Insert carts
+INSERT INTO carts (customer_id) VALUES 
+(1),
+(2),
+(3),
+(4),
+(5);
+
+-- 16. Insert cart items
+INSERT INTO cart_items (cart_id, product_id, quantity) VALUES 
+(1, 3, 2),
+(1, 5, 1),
+(2, 9, 1),
+(2, 11, 3),
+(3, 12, 1),
+(4, 8, 1),
+(5, 15, 2);

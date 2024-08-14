@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Anmishoe</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Additional styles for blog page */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 auto;
+            max-width: 1200px;
+            padding: 20px;
+        }
+        .main-content {
+            flex: 3;
+            padding: 20px;
+        }
+        .sidebar {
+            flex: 1;
+            padding: 20px;
+            background-color: #f9f9f9;
+            margin-left: 20px;
+        }
+        .blog-post {
+            margin-bottom: 40px;
+        }
+        .search-bar {
+            margin-bottom: 20px;
+        }
+        .search-bar input {
+            width: calc(100% - 40px);
+            padding: 10px;
+            margin-right: 10px;
+        }
+        .search-bar button {
+            padding: 10px;
+        }
+        .category, .recent-posts, .tags {
+            margin-bottom: 40px;
+        }
+        .category ul, .recent-posts ul, .tags ul {
+            list-style: none;
+            padding: 0;
+        }
+        .category ul li, .recent-posts ul li, .tags ul li {
+            margin-bottom: 10px;
+        }
+        .tags ul li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+        .tags ul li a {
+            padding: 5px 10px;
+            background-color: #eaeaea;
+            border-radius: 5px;
+        }
+        .pagination {
+            text-align: center;
+        }
+        .pagination a {
+            margin: 0 5px;
+            padding: 10px 20px;
+            background-color: #000;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        .pagination a.active {
+            background-color: #717171;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Anmishoe</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="main-content">
+            <h1>Our Blog</h1>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search blog...">
+                <button onclick="searchPosts()">Search</button>
+            </div>
+            <div id="blogPosts">
+                <div class="blog-post">
+                    <h2>The Best Shoes for Running</h2>
+                    <p>Discover the best shoes to improve your running performance...</p>
+                </div>
+                <div class="blog-post">
+                    <h2>How to Choose the Right Sneakers</h2>
+                    <p>Learn how to select the perfect pair of sneakers for any occasion...</p>
+                </div>
+                <div class="blog-post">
+                    <h2>Fashion Tips: Matching Shoes with Outfits</h2>
+                    <p>Get the best tips on how to match your shoes with your outfits...</p>
+                </div>
+                <div class="blog-post">
+                    <h2>Top 10 Hiking Boots for Adventure</h2>
+                    <p>Explore the best hiking boots for your outdoor adventures...</p>
+                </div>
+                <div class="blog-post">
+                    <h2>How to Care for Your Leather Shoes</h2>
+                    <p>Keep your leather shoes looking new with these care tips...</p>
+                </div>
+                <!-- Add more blog posts here -->
+            </div>
+            <div class="pagination">
+                <a href="#">&laquo;</a>
+                <a href="#" class="active">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <a href="#">&raquo;</a>
+            </div>
+        </div>
+        <div class="sidebar">
+            <div class="category">
+                <h3>Categories</h3>
+                <ul>
+                    <li><a href="#">Running Shoes</a></li>
+                    <li><a href="#">Sneakers</a></li>
+                    <li><a href="#">Hiking Boots</a></li>
+                    <li><a href="#">Fashion Tips</a></li>
+                    <li><a href="#">Shoe Care</a></li>
+                </ul>
+            </div>
+            <div class="recent-posts">
+                <h3>Recent Posts</h3>
+                <ul>
+                    <li><a href="#">The Best Shoes for Running</a></li>
+                    <li><a href="#">How to Choose the Right Sneakers</a></li>
+                    <li><a href="#">Fashion Tips: Matching Shoes with Outfits</a></li>
+                    <li><a href="#">Top 10 Hiking Boots for Adventure</a></li>
+                    <li><a href="#">How to Care for Your Leather Shoes</a></li>
+                </ul>
+            </div>
+            <div class="tags">
+                <h3>Tags</h3>
+                <ul>
+                    <li><a href="#">Running</a></li>
+                    <li><a href="#">Sneakers</a></li>
+                    <li><a href="#">Fashion</a></li>
+                    <li><a href="#">Care</a></li>
+                    <li><a href="#">Hiking</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 Anmishoe. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function searchPosts() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const posts = document.querySelectorAll('.blog-post');
+            
+            posts.forEach(post => {
+                const title = post.querySelector('h2').textContent.toLowerCase();
+                const content = post.querySelector('p').textContent.toLowerCase();
+                
+                if (title.includes(input) || content.includes(input)) {
+                    post.style.display = '';
+                } else {
+                    post.style.display = 'none';
+                }
+            });
+        }
+
+        // JavaScript to handle pagination (dummy implementation for demonstration)
+        const paginationLinks = document.querySelectorAll('.pagination a');
+        paginationLinks.forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                paginationLinks.forEach(link => link.classList.remove('active'));
+                this.classList.add('active');
+                // Add logic to fetch and display the corresponding page of blog posts
+            });
+        });
+    </script>
+</body>
+</html>

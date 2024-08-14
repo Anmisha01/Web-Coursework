@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Anmishoe</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Additional styles for slideshow and sticky navigation */
+        .mySlides {
+            display: none;
+        }
+        .fade {
+            animation: fadeEffect 1s;
+        }
+        @keyframes fadeEffect {
+            from {opacity: .4} 
+            to {opacity: 1}
+        }
+        .dot {
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+        .dot.active {
+            background-color: #717171;
+        }
+        header.sticky {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            background-color: #000;
+            color: #fff;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Anmishoe</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <img src="images/shoe1.jpg" alt="Shoe 1">
+        </div>
+        <div class="mySlides fade">
+            <img src="images/shoe2.jpg" alt="Shoe 2">
+        </div>
+        <div class="mySlides fade">
+            <img src="images/shoe3.jpg" alt="Shoe 3">
+        </div>
+        <div class="mySlides fade">
+            <img src="images/shoe4.png" alt="Shoe 4">
+        </div>
+        <div class="mySlides fade">
+            <img src="images/shoe5.jpg" alt="Shoe 5">
+        </div>
+        <div class="mySlides fade">
+            <img src="images/shoe6.png" alt="Shoe 6">
+        </div>
+        <div class="mySlides fade">
+            <img src="images/shoe7.png" alt="Shoe 7">
+        </div>
+        <div class="mySlides fade">
+            <img src="images/shoe8.png" alt="Shoe 8">
+        </div>
+        <div class="mySlides fade">
+            <img src="images/shoe9.png" alt="Shoe 9">
+        </div>
+        <div class="mySlides fade">
+            <img src="images/shoe10.png" alt="Shoe 10">
+        </div>
+        <div class="mySlides fade">
+            <img src="images/image11.jpg" alt="Shoe 11">
+        </div>
+        <div class="mySlides fade">
+            <img src="images/image12.jpg" alt="Shoe 12">
+        </div>
+        <div class="mySlides fade">
+            <img src="images/image13.jpg" alt="Shoe 13">
+        </div>
+        <div class="mySlides fade">
+            <img src="images/image14.jpg" alt="Shoe 14">
+        </div>
+        <div class="mySlides fade">
+            <img src="images/image15.jpg" alt="Shoe 15">
+        </div>
+        <div class="mySlides fade">
+            <img src="images/image16.jpg" alt="Shoe 16">
+        </div>
+        <div class="mySlides fade">
+            <img src="images/image17.jpg" alt="Shoe 17">
+        </div>
+        <div class="mySlides fade">
+            <img src="images/image18.jpg" alt="Shoe 18">
+        </div>
+        <div class="mySlides fade">
+            <img src="images/image19.jpg" alt="Shoe 19">
+        </div>
+        <div class="mySlides fade">
+            <img src="images/image20.jpg" alt="Shoe 20">
+        </div>
+        <div class="mySlides fade">
+            <img src="images/image21.jpg" alt="Shoe 21">
+        </div>
+        <div class="mySlides fade">
+            <img src="images/image22.jpg" alt="Shoe 22">
+        </div>
+    </div>
+    <br>
+    <div style="text-align:center">
+        <span class="dot"></span> 
+        <span class="dot"></span> 
+        <span class="dot"></span> 
+        <span class="dot"></span> 
+        <span class="dot"></span> 
+        <span class="dot"></span> 
+        <span class="dot"></span> 
+        <span class="dot"></span> 
+        <span class="dot"></span> 
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+
+    <main>
+        <h1>Welcome to Anmishoe</h1>
+        <p>Your one-stop shop for the latest and greatest in footwear.</p>
+        <p>Some sample products.</p>
+        <div class="product-grid">
+            <div class="product">
+                <img src="images/shoe1.jpg" alt="Shoe 1">
+                <h2>Casual Shoe</h2>
+                <p>Stylish and comfortable.</p>
+            </div>
+            <div class="product">
+                <img src="images/shoe2.jpg" alt="Shoe 2">
+                <h2>Sports Shoe</h2>
+                <p>Perfect for any occasion.</p>
+            </div>
+            <div class="product">
+                <img src="images/shoe3.jpg" alt="Shoe 3">
+                <h2>Running Shoe</h2>
+                <p>Designed for performance.</p>
+            </div>
+            <div class="product">
+                <img src="images/shoe4.png" alt="Shoe 4">
+                <h2>Running Shoe</h2>
+                <p>Designed for performance.</p>
+            </div>
+            <div class="product">
+                <img src="images/shoe5.jpg" alt="Shoe 5">
+                <h2>Sneaker</h2>
+                <p>Perfect for any occasion.</p>
+            </div>
+            <!-- Add more products as needed -->
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2024 Anmishoe. All rights reserved.</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </footer>
+
+    <div class="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log("DOM fully loaded and parsed");
+
+            let slideIndex = 0;
+            showSlides();
+
+            function showSlides() {
+                let i;
+                let slides = document.getElementsByClassName("mySlides");
+                let dots = document.getElementsByClassName("dot");
+                console.log(`Total slides: ${slides.length}`);
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";  
+                }
+                slideIndex++;
+                if (slideIndex > slides.length) {
+                    slideIndex = 1;
+                }    
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex-1].style.display = "block";  
+                dots[slideIndex-1].className += " active";
+                console.log(`Showing slide: ${slideIndex}`);
+                setTimeout(showSlides, 3000); // Change image every 3 seconds
+            }
+
+            function currentSlide(n) {
+                showSlides(slideIndex = n);
+            }
+
+            function scrollToTop() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            // Add event listeners for dots and scroll-to-top button
+            let dots = document.getElementsByClassName("dot");
+            for (let i = 0; i < dots.length; i++) {
+                dots[i].addEventListener("click", function() {
+                    console.log(`Dot ${i + 1} clicked`);
+                    currentSlide(i + 1);
+                });
+            }
+
+            document.querySelector(".back-to-top").addEventListener("click", function() {
+                console.log("Back to top button clicked");
+                scrollToTop();
+            });
+
+            // Sticky navigation
+            window.onscroll = function() {
+                var header = document.querySelector("header");
+                var sticky = header.offsetTop;
+
+                if (window.pageYOffset > sticky) {
+                    header.classList.add("sticky");
+                    console.log("Header is sticky");
+                } else {
+                    header.classList.remove("sticky");
+                    console.log("Header is not sticky");
+                }
+
+                // Back to top button visibility
+                var backToTopButton = document.querySelector(".back-to-top");
+                if (window.pageYOffset > 300) {
+                    backToTopButton.style.display = "block";
+                    console.log("Back to top button visible");
+                } else {
+                    backToTopButton.style.display = "none";
+                    console.log("Back to top button hidden");
+                }
+            };
+
+            // Initial call to showSlides to set the first image
+            showSlides();
+        });
+    </script>
+</body>
+</html>
